@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Create Account</h2>
+    <p>Register to explore jobs and companies</p>
+
+    <form id="registerForm">
+      <input type="email" id="regEmail" placeholder="Enter your email" required>
+      <input type="password" id="regPassword" placeholder="Enter your password" required>
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="index.html">Login</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let email = document.getElementById("regEmail").value;
+      let password = document.getElementById("regPassword").value;
+
+      // Save account to localStorage
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPassword", password);
+
+      alert("Account created successfully! Please login.");
+      window.location.href = "index.html"; // redirect to login page
+    });
+  </script>
+</body>
+</html>

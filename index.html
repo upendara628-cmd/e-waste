@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>WELCOME BACK</h2>
+    <p>Login to explore jobs and companies</p>
+
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <input type="password" id="password" placeholder="Enter your password" required>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="register.html">Register</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      let savedEmail = localStorage.getItem("userEmail");
+      let savedPassword = localStorage.getItem("userPassword");
+
+      if (email === savedEmail ) {
+        alert("Login successful!");
+        // Redirect after login success
+        window.location.href = "index.html"; // change this to your homepage
+      } else {
+        alert("Invalid credentials. Please register first or try again.");
+      }
+    });
+  </script>
+</body>
+</html>
